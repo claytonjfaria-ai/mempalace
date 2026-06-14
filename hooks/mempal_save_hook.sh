@@ -56,11 +56,15 @@ SAVE_INTERVAL=15  # Save every N human messages (adjust to taste)
 STATE_DIR="$HOME/.mempalace/hook_state"
 mkdir -p "$STATE_DIR"
 
+# Avoid Windows cp1252 UnicodeDecodeError crashes in the mempalace CLI
+export PYTHONUTF8=1
+export PYTHONIOENCODING=utf-8
+
 # Optional: project directory (code / notes / docs) to also mine each
 # save trigger. Mined with `--mode projects`. The conversation transcript
 # is always mined regardless — this is purely additive.
 # Example: MEMPAL_DIR="$HOME/projects/my_app"
-MEMPAL_DIR=""
+MEMPAL_DIR="$HOME/dev"
 
 # Resolve the Python interpreter the hook should use.
 #

@@ -58,6 +58,10 @@
 STATE_DIR="$HOME/.mempalace/hook_state"
 mkdir -p "$STATE_DIR"
 
+# Avoid Windows cp1252 UnicodeDecodeError crashes in the mempalace CLI
+export PYTHONUTF8=1
+export PYTHONIOENCODING=utf-8
+
 # Optional: project directory (code / notes / docs) to also mine before
 # compaction. Mined with `--mode projects`. The conversation transcript
 # is always mined regardless — this is purely additive.
