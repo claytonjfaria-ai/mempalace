@@ -50,6 +50,7 @@
     -webkit-tap-highlight-color: transparent;
   }
   .btn-primary { background: var(--accent); color: #fff; font-weight: 600; }
+  .btn-secondary { background: transparent; color: var(--muted); border: 1px solid var(--border); }
   .choice-btn {
     display: block;
     width: 100%;
@@ -137,7 +138,17 @@
       <h1>Quiz Complete</h1>
       <div class="score-big" id="score-big"></div>
       <div class="score-sub" id="score-sub"></div>
-      <button class="btn-primary" onclick="startQuiz()">Take Quiz Again</button>
+      <button class="btn-primary" onclick="startNewRound()">New 20 Questions</button>
+      <button class="btn-secondary" onclick="onQuitClicked()">Quit</button>
+    </div>
+  </section>
+
+  <section id="end-view" hidden>
+    <div class="card">
+      <h1>Thanks for studying</h1>
+      <div class="score-big" id="end-score-big"></div>
+      <div class="score-sub" id="end-score-sub"></div>
+      <div class="subtitle" style="margin-top:10px; margin-bottom:0;">You can close this tab now.</div>
     </div>
   </section>
 
@@ -348,6 +359,206 @@ const QUESTION_BANK = [
       "It generates unit tests automatically for any function it scans."
     ],
     explanation: "The resolver ‘replaces placeholder strings structured with double-bracket syntax [[VARIABLE_NAME]] with runtime overrides or environment configurations,’ so sensitive PII never needs to be hardcoded in test suites."
+  },
+  {
+    question: "Beyond the technical design, what other elements does the paper say a good spec should include?",
+    choices: [
+      "Visual aids built from versioned UI libraries, background explaining the ‘why’ behind the work, and concrete scenarios or edge cases to handle.",
+      "Only a list of file names the agent is allowed to touch.",
+      "A line-by-line pseudocode translation of the final implementation.",
+      "A budget estimate for cloud compute costs."
+    ],
+    explanation: "The paper lists visual aids (from versioned component libraries), the background/‘why,’ and scenarios/edge cases as essential parts of a spec alongside the technical design."
+  },
+  {
+    question: "Why does the paper treat tokenization as a ‘hard physical constraint’ on spec writing?",
+    choices: [
+      "Every character, space, and indent in a prompt or spec consumes part of a finite token budget, which costs time, money, and context capacity.",
+      "Tokens are a billing unit invented only for image generation, not text.",
+      "Tokenization only matters for non-English languages.",
+      "It's a constraint imposed by Markdown syntax, not by the model itself."
+    ],
+    explanation: "The paper frames tokenization as physical: every character — including whitespace and indentation — counts against a limited budget that costs time, money, and context capacity."
+  },
+  {
+    question: "Why does the paper recommend drafting technical designs in a tool like Google Docs before converting them to Markdown?",
+    choices: [
+      "It lets humans review and catch logical flaws collaboratively before the AI generates thousands of lines of code from a broken plan.",
+      "Google Docs supports better syntax highlighting for code than Markdown.",
+      "Markdown can't be read by AI agents at all, so an intermediate format is required.",
+      "It's required because Markdown files can't be version-controlled."
+    ],
+    explanation: "Drafting in a familiar collaborative doc tool first lets reviewers catch logic flaws while a plan is still easy to edit, before committing it to Markdown and letting an agent generate large amounts of code from it."
+  },
+  {
+    question: "How does the paper distinguish a chat interface from a checked-in spec folder as a place to store project intent?",
+    choices: [
+      "A chat interface is ephemeral and session-specific, while a checked-in spec folder is static, version-controlled, and indexable by any agent working on the repo.",
+      "Both are equally permanent once a conversation is archived.",
+      "A spec folder is only readable by humans, never by AI agents.",
+      "Chat history is always backed up to the same repository as the code."
+    ],
+    explanation: "The paper contrasts the disposable, session-bound nature of chat with a spec folder that's checked into the repository — persistent, versioned, and discoverable by any agent that opens the project."
+  },
+  {
+    question: "What does the paper define as an ‘Agent Skill’?",
+    choices: [
+      "A structured, trigger-based Markdown workflow stored in a designated directory, such as one that automatically keeps a CHANGELOG.md updated.",
+      "A built-in personality setting that changes how verbose the agent's responses are.",
+      "A paid add-on that unlocks additional programming languages.",
+      "A manual checklist a human runs through before approving a PR."
+    ],
+    explanation: "Agent Skills are described as structured, trigger-based Markdown workflows placed in a designated directory — for example, one that keeps a CHANGELOG.md automatically up to date."
+  },
+  {
+    question: "Why does the paper insist on ‘No YOLO Mode’ in Project Generation (Architect) mode?",
+    choices: [
+      "The agent should propose a folder structure and tech stack for human confirmation first, rather than start coding immediately.",
+      "YOLO mode is a setting that only exists in Bug Fixing mode, not Project Generation.",
+      "It's a legal requirement for any AI-generated repository.",
+      "Without it, the agent can't access version control at all."
+    ],
+    explanation: "In Architect mode the paper calls for proposing the folder structure and tech stack and getting human confirmation before any code is generated — never letting the agent run unchecked."
+  },
+  {
+    question: "In Feature Generation (Builder) mode, why does the paper say it's important to review the ‘Diff’ when multiple files are edited?",
+    choices: [
+      "Multi-file changes can introduce inconsistencies or unintended edits across the codebase that are easy to miss without seeing the full diff.",
+      "Diffs are only useful for tracking who authored each line.",
+      "Reviewing the diff is optional once tests pass.",
+      "The diff view is required by Git but has no bearing on code quality."
+    ],
+    explanation: "Builder mode often touches several files at once, so the paper emphasizes reviewing the full diff to catch unintended or inconsistent changes that a single-file view would hide."
+  },
+  {
+    question: "Why does the paper say documentation and code must stay in sync under Spec-Driven Development?",
+    choices: [
+      "Docs serve as the source of truth for agents, so drift between docs and code can cause an agent to hallucinate or act on outdated assumptions.",
+      "Out-of-sync docs are merely a cosmetic problem with no effect on agent behavior.",
+      "Documentation is only read by new human hires, never by agents.",
+      "Code automatically regenerates documentation, so sync is never an issue."
+    ],
+    explanation: "Because agents treat docs as ground truth, the paper warns that letting documentation drift from the actual code invites hallucination and incorrect agent behavior."
+  },
+  {
+    question: "What transparency requirement does the paper place on Data Engineering (Librarian) mode?",
+    choices: [
+      "The agent must show the exact SQL query or command it used, so the action can be verified rather than trusted blindly.",
+      "The agent must encrypt all query results before displaying them.",
+      "The agent is barred from running any read-only queries.",
+      "The agent must translate every query into natural language only, never showing raw SQL."
+    ],
+    explanation: "Librarian mode requires the agent to surface the exact SQL query or command it ran against the data, keeping the operation verifiable and transparent to the human."
+  },
+  {
+    question: "What does the paper's PR #1 / PR #2 / PR #3 dependency-chain example illustrate?",
+    choices: [
+      "‘Review gridlock’ — later PRs stall in a queue because they depend on earlier ones that are still awaiting review.",
+      "A scenario where three different teams ship the same feature independently.",
+      "How AI agents resolve merge conflicts automatically.",
+      "Why pull requests should never depend on one another."
+    ],
+    explanation: "The chained PR example demonstrates review gridlock: each PR depends on the one before it, so the whole chain stalls if an earlier PR is stuck waiting for review."
+  },
+  {
+    question: "Why does the paper recommend requiring an AI-generated ‘Bundled Summary and Risk Assessment’ on every PR?",
+    choices: [
+      "It helps human reviewers focus their attention on architecture and risk rather than reading every changed line.",
+      "It replaces the need for any human review entirely.",
+      "It's required so the PR can bypass automated tests.",
+      "It automatically rewrites the PR title for SEO purposes."
+    ],
+    explanation: "A bundled, AI-written summary and risk assessment lets reviewers direct their limited attention to architectural and risk concerns instead of manually scanning every line of a large diff."
+  },
+  {
+    question: "What does ‘Reimagined Ownership’ shift a reviewer's focus toward, per the paper?",
+    choices: [
+      "The integrity of the architectural blueprint, leaving style enforcement to linters and stylebooks instead of manual nitpicking.",
+      "Counting how many lines of code each contributor personally typed.",
+      "Making one person solely responsible for every bug in a file forever.",
+      "Removing the need for any reviewer once code passes CI."
+    ],
+    explanation: "Reimagined Ownership reframes the reviewer's job around protecting the architectural blueprint's integrity, while linters and stylebooks — not humans — handle stylistic nitpicks."
+  },
+  {
+    question: "What problem does the paper's ‘No-Blame Culture’ principle address?",
+    choices: [
+      "It attributes bugs or integration conflicts to a broken process rather than blaming the individual developer who happened to trigger them.",
+      "It removes all accountability for shipped bugs entirely.",
+      "It only applies to bugs caused by junior developers.",
+      "It encourages teams to blame the AI vendor for every defect."
+    ],
+    explanation: "No-Blame Culture treats bugs and integration conflicts as signals of a broken process to fix, rather than reasons to single out the individual developer involved."
+  },
+  {
+    question: "What three diagnostic questions does the paper say should guide which tier of repo-watching agent a team deploys?",
+    choices: [
+      "How specific the review criteria need to be, whether the agent needs memory across runs, and what the worst case looks like if it goes wrong.",
+      "How many GPUs are available, what language the repo uses, and how big the team is.",
+      "How much the tool costs, how fast it runs, and how popular it is on GitHub.",
+      "Whether the agent supports voice commands, dark mode, and mobile notifications."
+    ],
+    explanation: "The paper frames the tier choice around three questions: how specific the review criteria are, whether cross-run memory is needed, and what the worst-case failure looks like."
+  },
+  {
+    question: "Why does flattening a codebase into a plain vector store lose information that a graph database would preserve, according to the paper?",
+    choices: [
+      "Structural relationships — like which class belongs to which file, or which function call maps to which requirement — get lost when everything becomes unstructured embeddings.",
+      "Vector stores can't store text at all, only images.",
+      "Graph databases are simply faster at every kind of query, with no other tradeoff.",
+      "Vector stores require a paid license while graph databases are free."
+    ],
+    explanation: "A vector store captures semantic similarity but discards structure — the paper notes that class-to-file and function-call-to-requirement relationships survive in a graph database but disappear once everything is flattened into embeddings."
+  },
+  {
+    question: "Why does the paper say a single agent simply told to ‘refactor this module’ tends to fail at scale, and what's its proposed fix?",
+    choices: [
+      "One agent can't hold the full context of search, impact, and task breakdown at once; the paper proposes a pipeline of specialized sub-agents (Search, Story, Impact, Task-breakdown, then Coding) that hand off to each other.",
+      "It fails because refactoring is impossible for any AI system to perform.",
+      "The fix is to give the single agent unlimited time with no other changes.",
+      "It fails only when the module is written in a dynamically typed language."
+    ],
+    explanation: "A lone agent given a broad instruction like ‘refactor this module’ lacks the structured context to do it reliably; the paper's fix is a sub-agent pipeline — Search, Story, Impact, Task-breakdown, then Coding agents — each handling one stage."
+  },
+  {
+    question: "What problems do ‘Digital Quiet Hours’ and ‘Agent Insight Sessions’ address in the paper?",
+    choices: [
+      "Approval fatigue and burnout, by setting boundaries on when approval requests can interrupt people and creating shared sessions to discuss patterns agents are finding.",
+      "Slow internet connections during peak office hours.",
+      "The need to silence agent notifications permanently.",
+      "Disagreements over which programming language a team should standardize on."
+    ],
+    explanation: "Digital Quiet Hours limit when approval pings can interrupt a person, and Agent Insight Sessions give teams a shared forum to discuss patterns agents are surfacing — both aimed at reducing approval fatigue and burnout."
+  },
+  {
+    question: "Why does the paper say Antigravity's built-in browser runs in an isolated, incognito-like Chrome profile?",
+    choices: [
+      "To prevent context leakage or accidental actions from bleeding in through a developer's active personal browser logins and sessions.",
+      "Incognito mode is required for the browser to render any web page at all.",
+      "It makes page loads faster by disabling all extensions.",
+      "It's a licensing requirement imposed by the browser vendor."
+    ],
+    explanation: "Running the agent's browser in an isolated, incognito-like profile keeps it from picking up a developer's logged-in personal sessions, preventing context leakage or unintended live actions."
+  },
+  {
+    question: "Why does a policies.yaml configuration in the paper's example block the `send_email` action specifically on the `localhost` environment?",
+    choices: [
+      "To prevent an agent from accidentally sending real emails while it's just being tested or developed locally.",
+      "Because localhost environments can't make outbound network calls at all.",
+      "Because email sending is always disabled in YAML by default.",
+      "To force all email testing to happen only in production."
+    ],
+    explanation: "Blocking `send_email` on `localhost` is a safeguard so that local testing and development can never accidentally trigger a real email send — exactly the kind of structural gate the paper recommends for risky actions."
+  },
+  {
+    question: "What does the paper's closing summary identify as the real lever for getting value out of AI coding tools, beyond better prompts or faster models?",
+    choices: [
+      "Evolving team dynamics and collaboration boundaries — humans acting as architects while AI handles heavy lifting like test-writing and operational details.",
+      "Switching to whichever model has the largest context window.",
+      "Hiring more junior developers to review AI output line by line.",
+      "Eliminating code review entirely once AI reaches a certain accuracy threshold."
+    ],
+    explanation: "The paper closes by arguing the real unlock isn't a better prompt or a faster model, but how teams restructure collaboration — humans as architects, with AI absorbing operational heavy-lifting like writing tests."
   }
 ];
 
@@ -355,10 +566,11 @@ const QUESTION_BANK = [
 let questions = [];
 let currentIndex = 0;
 let score = 0;
+let lastRoundIndices = new Set();
 
 /* ---------- helpers ---------- */
 function showView(id) {
-  ['intro-view', 'quiz-view', 'result-view', 'score-view'].forEach(v => {
+  ['intro-view', 'quiz-view', 'result-view', 'score-view', 'end-view'].forEach(v => {
     document.getElementById(v).hidden = (v !== id);
   });
 }
@@ -378,15 +590,32 @@ function escapeHtml(str) {
 }
 
 /* ---------- flow ---------- */
-function startQuiz() {
-  questions = shuffle(QUESTION_BANK.map(q => ({
-    question: q.question,
-    correctAnswer: q.choices[0],
-    explanation: q.explanation,
-    choices: shuffle(q.choices.slice())
-  })));
+function buildRound(indices) {
+  questions = shuffle(indices.map(i => {
+    const q = QUESTION_BANK[i];
+    return {
+      question: q.question,
+      correctAnswer: q.choices[0],
+      explanation: q.explanation,
+      choices: shuffle(q.choices.slice())
+    };
+  }));
   currentIndex = 0;
   score = 0;
+}
+
+function startQuiz() {
+  const chosen = shuffle([...Array(QUESTION_BANK.length).keys()]).slice(0, 20);
+  lastRoundIndices = new Set(chosen);
+  buildRound(chosen);
+  showView('quiz-view');
+  renderQuestion();
+}
+
+function startNewRound() {
+  const complement = [...Array(QUESTION_BANK.length).keys()].filter(i => !lastRoundIndices.has(i));
+  lastRoundIndices = new Set(complement);
+  buildRound(complement);
   showView('quiz-view');
   renderQuestion();
 }
@@ -434,11 +663,22 @@ function onNextClicked() {
   }
 }
 
+let finalScoreText = '';
+let finalScoreSubText = '';
+
 function showScore() {
   const pct = Math.round((score / questions.length) * 100);
-  document.getElementById('score-big').textContent = `${score} / ${questions.length}`;
-  document.getElementById('score-sub').textContent = `${pct}% correct`;
+  finalScoreText = `${score} / ${questions.length}`;
+  finalScoreSubText = `${pct}% correct`;
+  document.getElementById('score-big').textContent = finalScoreText;
+  document.getElementById('score-sub').textContent = finalScoreSubText;
   showView('score-view');
+}
+
+function onQuitClicked() {
+  document.getElementById('end-score-big').textContent = finalScoreText;
+  document.getElementById('end-score-sub').textContent = finalScoreSubText;
+  showView('end-view');
 }
 </script>
 </body>
