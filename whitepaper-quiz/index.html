@@ -163,369 +163,369 @@ const QUESTION_BANK = [
   {
     question: "The paper draws a line between ‘vibe coding’ and ‘vibe coding in production.’ What's the key difference?",
     choices: [
-      "Vibe coding can rapidly generate code from high-level intent, but in production every output still has to be validated and intentional rather than trusted blindly.",
-      "Vibe coding is only legal during prototyping and can't be used at companies above a certain size.",
-      "There is no real difference — the paper treats them as the same practice under two names.",
-      "Vibe coding in production means letting the agent run in YOLO mode at all times to maximize speed."
+      "Vibe coding moves fast from intent, but production output must be validated and intentional.",
+      "Vibe coding is legally restricted to prototyping and gets banned once a company grows past a certain size.",
+      "There's no real difference; the paper treats both terms as describing the exact same practice throughout.",
+      "Vibe coding in production just means running the agent in YOLO mode nonstop to maximize raw speed."
     ],
     explanation: "The paper stresses that even when teams lean on AI agents heavily, everything must stay ‘fully intended and controlled to ensure production-grade reliability, rather than relying on unvalidated AI output.’"
   },
   {
     question: "According to the paper, what has become the new bottleneck in software development now that AI can write code quickly?",
     choices: [
-      "The humans who must review, integrate, and verify the flood of AI-generated code.",
-      "The cost of the GPUs used to train new models.",
-      "The shortage of programming languages AI can write in.",
-      "The time it takes to type the original specification."
+      "The humans who now must review, integrate, and verify the flood of code that agents generate so fast.",
+      "The steadily rising cost of all the specialized GPUs companies need to train ever larger, newer AI models.",
+      "The shortage of programming languages that AI agents are currently able to write in.",
+      "The time it still takes a human to type out the very first draft of a spec."
     ],
     explanation: "Implementation is no longer the constraint — ‘the bottleneck has shifted downstream to the humans who must integrate and review this work.’"
   },
   {
     question: "Why does the paper say code can be treated as ‘disposable’ under Spec-Driven Development?",
     choices: [
-      "If the specification is solid, the whole codebase can be regenerated from it, so there's little emotional attachment to any one version of the code.",
-      "AI-written code can't legally be copyrighted, so it has no lasting value.",
-      "Disposable code means it never needs to be tested before shipping.",
-      "Code is disposable only because cloud storage is cheap."
+      "With a solid specification, the whole codebase can be regenerated repeatedly, so attachment to any one version fades.",
+      "AI-written code can't legally be copyrighted, so it's treated as having no lasting value at all.",
+      "Disposable code is simply code that never needs to be tested before it ships out.",
+      "Code gets called disposable mainly because cloud storage has become so cheap lately."
     ],
     explanation: "Per the paper: ‘If a rock-solid specification is written, the entire codebase can be regenerated repeatedly... there isn't the same emotional attachment to it.’"
   },
   {
     question: "The SkCC research cited in the paper compared formats for deeply nested configuration data. What did it find?",
     choices: [
-      "YAML parsed deeply nested data far more accurately (51.9%) than JSON (43.1%) or XML (33.8%), while unoptimized generic Markdown could cost up to a 40% performance drop.",
-      "JSON beat both YAML and XML by a wide margin on every nested configuration.",
-      "All formats performed about the same once skill compilation was applied.",
-      "XML was the most reliable format for nested data, ahead of both YAML and JSON."
+      "YAML parsed nested data more accurately (51.9%) than JSON (43.1%) or XML (33.8%); messy Markdown cost up to 40%.",
+      "JSON is claimed to have outperformed both YAML and XML by a wide margin on every nested configuration tested in the study.",
+      "All three formats reportedly performed about the same once proper skill compilation was applied to the underlying data.",
+      "XML proved the most reliable format for nested data, ahead of both YAML and JSON in testing."
     ],
     explanation: "The paper cites this exact ranking for deeply nested configs: YAML 51.9%, JSON 43.1%, XML 33.8%, with poorly formatted Markdown costing up to a 40% performance hit."
   },
   {
     question: "What's the purpose of Gherkin's ‘Scenario / Given / When / Then’ structure in a BDD spec?",
     choices: [
-      "It forces the agent to think in terms of State > Action > Outcome, removing ambiguity and ‘vibe coding’ guesswork.",
-      "It's a test runner that executes unit tests without needing any specification.",
-      "It replaces the need for any natural-language description of requirements.",
-      "It's a diagramming notation used only for database schemas."
+      "It forces the agent to think in State, Action, and Outcome terms, removing ambiguity and ‘vibe coding’ guesswork.",
+      "It's actually just a test runner that executes unit tests without requiring any specification document of any kind.",
+      "It replaces the need for any natural-language description of the requirements entirely.",
+      "It's a diagramming notation that's only ever used for sketching database schemas."
     ],
     explanation: "The paper says Gherkin ‘forces the LLM to think in terms of State > Action > Outcome, which completely eliminates “vibe coding” and keeps the agent on a strict track.’"
   },
   {
     question: "How does the paper distinguish a shared ‘AGENTS.md’ file from a tool-specific file like ‘GEMINI.md’?",
     choices: [
-      "AGENTS.md is a shared, cross-tool foundation for teams using multiple AI clients, while GEMINI.md keeps the highest priority for Google-specific project settings.",
-      "AGENTS.md only works for individual developers, never for teams.",
-      "GEMINI.md is being phased out entirely in favor of AGENTS.md.",
-      "They serve identical purposes and can be used interchangeably."
+      "AGENTS.md is shared across multi-client teams; GEMINI.md keeps top local priority.",
+      "AGENTS.md only works for solo developers, never teams, according to the paper's framing.",
+      "GEMINI.md is being phased out completely now that AGENTS.md exists as its replacement.",
+      "The two files serve identical purposes and can be swapped for each other at any time."
     ],
     explanation: "AGENTS.md ‘acts as a shared cross-tool foundation’ when a team uses multiple AI clients, while ‘a local GEMINI.md file retains the highest priority for Google-specific settings.’"
   },
   {
     question: "In ‘Bug Fixing (The Forensic Specialist)’ mode, the paper recommends ‘Evidence Prompting’ over ‘Symptom Prompting.’ What does that mean?",
     choices: [
-      "Instead of vaguely saying ‘the button doesn't work,’ you supply concrete evidence — like a specific error log — to drive root-cause analysis.",
-      "Letting the agent guess the cause without providing any logs or context.",
-      "Writing the fix yourself and having the agent only document it afterward.",
-      "Switching programming languages whenever a bug is found."
+      "Instead of saying ‘the button doesn't work,’ you hand over concrete evidence, like an error log.",
+      "Letting the agent simply guess at the root cause without supplying any logs or context, per the paper.",
+      "Writing the fix yourself entirely first and having the agent only document it for the team afterward.",
+      "Switching to a different programming language as soon as any bug shows up."
     ],
     explanation: "The paper's example shifts from ‘The button doesn't work’ to ‘Logs pulled using gcloud logging read... showed a 403 error,’ then traces the exact request flow."
   },
   {
     question: "Why does the paper recommend always specifying exact library/tool version numbers in a spec?",
     choices: [
-      "An agent's knowledge cutoff means it may default to suggesting older versions it was trained on unless told otherwise.",
-      "Version numbers are a required part of Gherkin syntax.",
-      "Newer library versions are always slower than older ones.",
-      "YAML files can't store package names without version numbers."
+      "An agent's knowledge cutoff means it may default to an older version it trained on unless told otherwise.",
+      "Version numbers are technically a mandatory part of the Gherkin specification syntax.",
+      "Newer library versions are, as a rule, always slower at runtime than older ones.",
+      "YAML configuration files are structurally unable to store package names at all."
     ],
     explanation: "The paper warns the agent ‘might suggest an older version of a tool because its “knowledge cutoff”... was in the past,’ so version numbers should always be double-checked."
   },
   {
     question: "The paper calls MCP ‘the USB-C for AI tools.’ What does that analogy capture?",
     choices: [
-      "You build one MCP server for a resource (database, API, file system) and any MCP-compatible agent can use it without a custom integration each time.",
-      "MCP is a physical hardware standard for connecting GPUs to AI accelerators.",
-      "MCP removes the need for any specification or documentation.",
-      "MCP only allows a single agent to connect to a single server at a time."
+      "Build one MCP server for a database, API, or file system, and any agent can reuse it without custom integration.",
+      "MCP is actually a physical hardware standard for wiring GPUs into AI accelerators.",
+      "MCP removes the need for writing any specification or documentation whatsoever.",
+      "MCP only ever allows a single agent to connect to a single server at any one given time."
     ],
     explanation: "Per the paper: ‘You build one MCP server for your database (or API, or file system), and any MCP-compatible agent can use it without writing a custom integration.’"
   },
   {
     question: "What's the security purpose of running agent tasks inside ephemeral, low-privilege sandbox containers?",
     choices: [
-      "It creates a ‘blast radius’ that confines damage from a tricked or malicious action to a disposable instance, leaving core infrastructure untouched.",
-      "It makes the agent generate code faster by reducing token usage.",
-      "It mainly saves cloud storage costs by compressing files.",
-      "It removes the need for code review since sandboxed code is always safe."
+      "It creates a ‘blast radius’ confining damage from a tricked action to one disposable instance.",
+      "It mainly makes the agent generate code somewhat faster by trimming down its overall token usage per call substantially.",
+      "It mainly exists in practice to save on cloud storage costs by compressing all the stored files.",
+      "It removes the need for code review entirely, since sandboxed code is always safe."
     ],
     explanation: "Sandboxing isolates execution from the primary network and file system, so ‘if an agent is tricked into executing a destructive command, the damage is confined to a disposable instance.’"
   },
   {
     question: "What kind of actions does the paper say should require a Human-in-the-Loop (HITL) checkpoint?",
     choices: [
-      "High-stakes operations with a specific risk profile, such as deploying to production, modifying database schemas, or initiating financial transactions.",
-      "Every single line of code an agent writes, regardless of risk.",
-      "Only cosmetic UI changes like color or font tweaks.",
-      "Anything happening inside a sandbox, since sandboxed actions are already safe."
+      "High-risk actions, like production deploys or financial transactions.",
+      "Every single line of code an agent writes, no matter how small or low-risk it is.",
+      "Only cosmetic interface changes, like tweaking a color value or font choice.",
+      "Anything running inside a sandbox, since sandboxed actions are already considered safe."
     ],
     explanation: "The paper specifies HITL gates for ‘actions that meet a specific risk profile, such as deploying code to production, modifying database schemas, or initiating financial transactions.’"
   },
   {
     question: "Why does the paper insist agents produce a failing unit test or reproduction command before attempting a bug fix?",
     choices: [
-      "It proves the bug is real and reproducible, and keeping that test in the codebase stops the same bug from silently coming back later.",
-      "Failing tests are a legal requirement for AI-generated commits.",
-      "It lets the agent skip reading any code before making changes.",
-      "It allows the agent to skip code review once a test exists."
+      "It proves the bug is real and reproducible, and keeping that test stops the same bug from quietly returning.",
+      "Failing tests are apparently treated as a strict legal requirement for any AI-generated commit to merge at all.",
+      "It lets the agent skip reading any of the surrounding code before making changes.",
+      "It allows the agent to skip code review entirely once that one test exists."
     ],
     explanation: "The paper says to ‘always prompt for a failing unit test or a curl command... to reproduce the bug first. Keep this test case in the codebase to ensure the bug does not return.’"
   },
   {
     question: "What does the paper mean by ‘context fragmentation’ as a team-culture risk?",
     choices: [
-      "A teammate changes shared code (like renaming a variable) while an agent works from an outdated snapshot, generating code that calls something that no longer exists.",
-      "A model's context window simply running out of space mid-conversation.",
-      "Two teams using two different programming languages on the same project.",
-      "A spec file being split across multiple folders for organization."
+      "A teammate renames shared code while an agent works from an outdated snapshot.",
+      "A model's context window simply running out of room partway through a long conversation.",
+      "Two separate teams using two different programming languages on one shared project.",
+      "A spec file split across folders for organization."
     ],
     explanation: "The paper's example: ‘a teammate renames a variable in a shared file; an agent, quoting an outdated snapshot, mints code that calls a function that no longer exists.’"
   },
   {
     question: "What does a ‘Conditional LGTM’ let a reviewer do on a high-velocity, cross-timezone team?",
     choices: [
-      "Approve a PR contingent on all automated tests passing, so it merges automatically once tests turn green, without waiting on someone in another timezone.",
-      "Approve a PR without ever running it, based purely on the author's reputation.",
-      "Automatically reject any PR that touches more than one file.",
-      "Delay merging until every team member across all timezones has individually approved."
+      "Approve a PR contingent on tests passing, so it merges automatically once green, with no timezone wait.",
+      "Approve a PR without ever running it at all, based purely on the author's reputation.",
+      "Automatically reject any PR that happens to touch more than a single file.",
+      "Delay merging until every team member in every timezone approves it individually."
     ],
     explanation: "The paper describes it as approving ‘the PR contingent on it passing all automated tests; if the tests turn green, the code merges automatically’ — eliminating 12-hour cross-timezone delays."
   },
   {
     question: "Of the three tiers for deploying agents that review your repo, which trades the most control for the least setup effort — and why might a team outgrow it?",
     choices: [
-      "Tier 1 (Managed); it gives a generic reviewer in minutes, but teams often outgrow it when it misses domain-specific risks, like flagging cleared boilerplate while missing unmasked PII in logs.",
-      "Tier 3 (Custom); it's the simplest because it needs no infrastructure of your own.",
-      "Tier 2 (Hybrid); it always uses a generic SaaS reviewer with zero customization.",
-      "All three tiers offer identical control and setup effort, per the paper."
+      "Tier 1, Managed; quick generic review, but teams outgrow it once it misses domain risks like unmasked PII.",
+      "Tier 3, Custom, is actually claimed to be the simplest option since it needs no infrastructure of its own to run.",
+      "Tier 2, Hybrid; it always defaults to a generic SaaS reviewer with zero customization options.",
+      "All three tiers offer identical control and identical setup effort, per the paper's claims."
     ],
     explanation: "Tier 1 is ‘the off-the-shelf path... no prompts to write, no infrastructure to manage,’ but ‘a generic reviewer will miss what matters’ — shown by a fintech team whose managed reviewer missed unmasked PII while flagging already-cleared boilerplate."
   },
   {
     question: "What is ‘approval fatigue,’ and what statistic does the paper cite for its impact?",
     choices: [
-      "Reflexively clicking ‘Approve’ on a constant stream of AI-generated micro-changes; the paper cites research showing frequent AI users are 45% more likely to report high burnout.",
-      "A UI bug where the approval button stops responding after repeated clicks.",
-      "A statistic showing burnout is unrelated to how often someone uses AI.",
-      "A 45% increase in PR merge speed reported by frequent AI users."
+      "Reflexively clicking ‘Approve’ on endless AI micro-changes; users are 45% more likely to burn out.",
+      "A UI bug where the approval button simply stops responding after several repeated rapid clicks, per the paper's account.",
+      "Research is described as showing burnout has no measurable connection to how often someone uses AI tools at all.",
+      "A 45% increase in how quickly pull requests merge, as reported anecdotally by frequent AI tool users."
     ],
     explanation: "The paper cites Quantum Workplace research, reported by CNBC: ‘frequent AI users are 45% more likely to experience high burnout than non-users.’"
   },
   {
     question: "In the Zero-Trust Development incident described in the paper, what actually caused fifty colleagues to receive false emails?",
     choices: [
-      "A browser agent in auto-approve (YOLO) mode hallucinated a connection to a deprecated legacy email agent, with no human check, after a button was built without a specified URL.",
-      "An external attacker phished the company's email system.",
-      "A developer intentionally sent a mass test email to the whole team.",
-      "A misconfigured spam filter forwarded internal drafts to outside addresses."
+      "A browser agent in auto-approve mode hallucinated a link to a deprecated email agent after a button lacked a URL.",
+      "An outside attacker successfully phished into the company's internal email system overnight.",
+      "A developer deliberately sent a mass test email out to the entire engineering team.",
+      "A misconfigured spam filter forwarded internal drafts out to external addresses by mistake."
     ],
     explanation: "The paper: ‘Without a specified URL, the agent hallucinated by connecting to a deprecated legacy agent with no email safeguards. The result? Fifty colleagues received false emails filled with hallucinated content.’"
   },
   {
     question: "In the Policy Server pattern, what's the difference between ‘Structural Gating’ and ‘Semantic Gating’?",
     choices: [
-      "Structural Gating uses fast, deterministic role/environment rules to block disallowed tools outright; Semantic Gating uses a secondary LLM to judge whether an otherwise-allowed action's content (like an email) violates policy, e.g. by containing unmasked PII.",
-      "Structural Gating uses an LLM to judge intent, while Semantic Gating uses static YAML rules.",
-      "They're two names for the same deterministic rule-checking mechanism.",
-      "Semantic Gating only applies to database queries, never to other tool calls."
+      "Structural Gating uses fast deterministic rules to block tools; Semantic Gating uses an LLM to judge content.",
+      "Structural Gating is said to use an LLM to judge intent, while Semantic Gating relies only on static YAML rule files for everything.",
+      "They're really just two different names describing the exact same deterministic rule-checking mechanism underneath, per the paper.",
+      "Semantic Gating is described as applying only to database queries specifically, never to any other kind of tool call at all."
     ],
     explanation: "Structural Gating is ‘deterministic rules based on roles and environments,’ while Semantic Gating ‘uses a secondary, specialized LLM... to inspect the intent and content of a proposed action’ for things ‘you cannot regex,’ like unmasked PII."
   },
   {
     question: "Why does the paper argue traditional unit tests fall short for evaluating AI/ML-driven components like agents or classifiers?",
     choices: [
-      "Their output is generated and probabilistic, not computed — a component can pass 100 unit tests yet still pick the wrong tool or hallucinate, so evaluation uses scored judgments and tolerance bands instead of binary pass/fail.",
-      "Unit tests are too slow to run in a CI pipeline for ML code.",
-      "ML components can't be tested by any automated method, only by humans.",
-      "Unit tests only check syntax, never runtime behavior, in any system."
+      "Their output is generated and probabilistic, so a component can pass 100 unit tests yet still hallucinate or pick wrong.",
+      "Unit tests are simply claimed to be too slow to run inside a continuous integration pipeline made specifically for ML code.",
+      "ML components apparently can't be tested by any automated method, only by humans directly.",
+      "Unit tests only ever check syntax and never check any actual runtime behavior at all."
     ],
     explanation: "The paper: ‘an ML-driven component... can pass 100 unit tests on its tools and still fail spectacularly... Evaluation closes this gap by replacing binary assertions with scored judgments and tolerance bands.’"
   },
   {
     question: "What problem does the ContextResolver pattern (using [[VARIABLE_NAME]] placeholders) solve?",
     choices: [
-      "Templates can reference placeholders that get safely resolved to runtime or environment values at execution time, so real PII never has to be hardcoded into prompts or test suites.",
-      "It compiles Markdown specs into YAML automatically for faster parsing.",
-      "It automatically translates code from one programming language to another.",
-      "It generates unit tests automatically for any function it scans."
+      "Placeholders resolve safely to runtime values, so real PII never has to be hardcoded.",
+      "It automatically compiles every Markdown specification into YAML for noticeably faster parsing later on.",
+      "It automatically translates code from one programming language into another one entirely.",
+      "It automatically generates unit tests for any function that it happens to scan."
     ],
     explanation: "The resolver ‘replaces placeholder strings structured with double-bracket syntax [[VARIABLE_NAME]] with runtime overrides or environment configurations,’ so sensitive PII never needs to be hardcoded in test suites."
   },
   {
     question: "Beyond the technical design, what other elements does the paper say a good spec should include?",
     choices: [
-      "Visual aids built from versioned UI libraries, background explaining the ‘why’ behind the work, and concrete scenarios or edge cases to handle.",
-      "Only a list of file names the agent is allowed to touch.",
-      "A line-by-line pseudocode translation of the final implementation.",
-      "A budget estimate for cloud compute costs."
+      "Visual aids from versioned libraries, background on the ‘why,’ and edge-case scenarios.",
+      "Only a strict, exhaustive list of file names that the agent is technically permitted to touch at all.",
+      "A complete line-by-line pseudocode translation of exactly what the final implementation should look like.",
+      "A rough, itemized budget estimate covering the project's expected ongoing cloud compute costs."
     ],
     explanation: "The paper lists visual aids (from versioned component libraries), the background/‘why,’ and scenarios/edge cases as essential parts of a spec alongside the technical design."
   },
   {
     question: "Why does the paper treat tokenization as a ‘hard physical constraint’ on spec writing?",
     choices: [
-      "Every character, space, and indent in a prompt or spec consumes part of a finite token budget, which costs time, money, and context capacity.",
-      "Tokens are a billing unit invented only for image generation, not text.",
-      "Tokenization only matters for non-English languages.",
-      "It's a constraint imposed by Markdown syntax, not by the model itself."
+      "Every character, space, and indent in a prompt eats into a finite budget of time, money, and context.",
+      "Tokens are apparently a billing unit invented solely for image generation work, not text.",
+      "Tokenization is described as only ever mattering for languages other than English.",
+      "It's framed as a constraint imposed by Markdown syntax itself, not by the model."
     ],
     explanation: "The paper frames tokenization as physical: every character — including whitespace and indentation — counts against a limited budget that costs time, money, and context capacity."
   },
   {
     question: "Why does the paper recommend drafting technical designs in a tool like Google Docs before converting them to Markdown?",
     choices: [
-      "It lets humans review and catch logical flaws collaboratively before the AI generates thousands of lines of code from a broken plan.",
-      "Google Docs supports better syntax highlighting for code than Markdown.",
-      "Markdown can't be read by AI agents at all, so an intermediate format is required.",
-      "It's required because Markdown files can't be version-controlled."
+      "It lets humans catch logical flaws together before the AI generates code from a broken plan.",
+      "Google Docs is claimed to offer noticeably better code syntax highlighting overall than Markdown provides natively.",
+      "Markdown apparently can't be read by AI agents at all without some extra conversion step first being applied.",
+      "It's required only because Markdown files supposedly can't be version-controlled properly."
     ],
     explanation: "Drafting in a familiar collaborative doc tool first lets reviewers catch logic flaws while a plan is still easy to edit, before committing it to Markdown and letting an agent generate large amounts of code from it."
   },
   {
     question: "How does the paper distinguish a chat interface from a checked-in spec folder as a place to store project intent?",
     choices: [
-      "A chat interface is ephemeral and session-specific, while a checked-in spec folder is static, version-controlled, and indexable by any agent working on the repo.",
-      "Both are equally permanent once a conversation is archived.",
-      "A spec folder is only readable by humans, never by AI agents.",
-      "Chat history is always backed up to the same repository as the code."
+      "A chat is ephemeral and tied to one session, while a spec folder is static and agent-indexable.",
+      "Both are described as being equally permanent once a given conversation gets fully and properly archived.",
+      "A spec folder is said to be readable only by humans, never by any AI agent at all.",
+      "Chat history is automatically backed up into the same repository as the project's code."
     ],
     explanation: "The paper contrasts the disposable, session-bound nature of chat with a spec folder that's checked into the repository — persistent, versioned, and discoverable by any agent that opens the project."
   },
   {
     question: "What does the paper define as an ‘Agent Skill’?",
     choices: [
-      "A structured, trigger-based Markdown workflow stored in a designated directory, such as one that automatically keeps a CHANGELOG.md updated.",
-      "A built-in personality setting that changes how verbose the agent's responses are.",
-      "A paid add-on that unlocks additional programming languages.",
-      "A manual checklist a human runs through before approving a PR."
+      "A structured, trigger-based Markdown workflow that lives in a designated directory.",
+      "A built-in personality setting that changes how verbose the agent's replies tend to sound.",
+      "A paid add-on that supposedly unlocks support for additional programming languages.",
+      "A manual checklist that a human works through before approving any pull request."
     ],
     explanation: "Agent Skills are described as structured, trigger-based Markdown workflows placed in a designated directory — for example, one that keeps a CHANGELOG.md automatically up to date."
   },
   {
     question: "Why does the paper insist on ‘No YOLO Mode’ in Project Generation (Architect) mode?",
     choices: [
-      "The agent should propose a folder structure and tech stack for human confirmation first, rather than start coding immediately.",
-      "YOLO mode is a setting that only exists in Bug Fixing mode, not Project Generation.",
-      "It's a legal requirement for any AI-generated repository.",
-      "Without it, the agent can't access version control at all."
+      "The agent proposes a folder structure and tech stack, pending confirmation first.",
+      "YOLO mode is described as only ever existing within Bug Fixing mode, not this one.",
+      "It's framed in the paper as a strict legal requirement for any AI-generated repository.",
+      "Without it, the agent supposedly can't access version control tooling at all."
     ],
     explanation: "In Architect mode the paper calls for proposing the folder structure and tech stack and getting human confirmation before any code is generated — never letting the agent run unchecked."
   },
   {
     question: "In Feature Generation (Builder) mode, why does the paper say it's important to review the ‘Diff’ when multiple files are edited?",
     choices: [
-      "Multi-file changes can introduce inconsistencies or unintended edits across the codebase that are easy to miss without seeing the full diff.",
-      "Diffs are only useful for tracking who authored each line.",
-      "Reviewing the diff is optional once tests pass.",
-      "The diff view is required by Git but has no bearing on code quality."
+      "Multi-file edits can introduce subtle bugs the single-file view would miss.",
+      "Diffs are presented as useful only for tracking exactly who authored each individual line.",
+      "Reviewing the diff is described as purely optional once the automated tests pass.",
+      "The diff view is required by Git but is said to carry no bearing on code quality."
     ],
     explanation: "Builder mode often touches several files at once, so the paper emphasizes reviewing the full diff to catch unintended or inconsistent changes that a single-file view would hide."
   },
   {
     question: "Why does the paper say documentation and code must stay in sync under Spec-Driven Development?",
     choices: [
-      "Docs serve as the source of truth for agents, so drift between docs and code can cause an agent to hallucinate or act on outdated assumptions.",
-      "Out-of-sync docs are merely a cosmetic problem with no effect on agent behavior.",
-      "Documentation is only read by new human hires, never by agents.",
-      "Code automatically regenerates documentation, so sync is never an issue."
+      "Docs are the source of truth for agents, so drift can push one toward hallucination or stale assumptions.",
+      "Out-of-sync docs are framed as a purely cosmetic issue with no real effect on agents.",
+      "Documentation is said to be read only by new human hires, never by any agent at all.",
+      "Code is described as automatically regenerating documentation, so sync never really matters."
     ],
     explanation: "Because agents treat docs as ground truth, the paper warns that letting documentation drift from the actual code invites hallucination and incorrect agent behavior."
   },
   {
     question: "What transparency requirement does the paper place on Data Engineering (Librarian) mode?",
     choices: [
-      "The agent must show the exact SQL query or command it used, so the action can be verified rather than trusted blindly.",
-      "The agent must encrypt all query results before displaying them.",
-      "The agent is barred from running any read-only queries.",
-      "The agent must translate every query into natural language only, never showing raw SQL."
+      "The agent must show the exact SQL query it ran, so the action stays verifiable.",
+      "The agent is required to encrypt every query result before it ever gets displayed.",
+      "The agent is barred from ever running so much as a single read-only query.",
+      "The agent must translate every query into plain language, hiding the raw SQL used."
     ],
     explanation: "Librarian mode requires the agent to surface the exact SQL query or command it ran against the data, keeping the operation verifiable and transparent to the human."
   },
   {
     question: "What does the paper's PR #1 / PR #2 / PR #3 dependency-chain example illustrate?",
     choices: [
-      "‘Review gridlock’ — later PRs stall in a queue because they depend on earlier ones that are still awaiting review.",
-      "A scenario where three different teams ship the same feature independently.",
-      "How AI agents resolve merge conflicts automatically.",
-      "Why pull requests should never depend on one another."
+      "‘Review gridlock’ — later PRs stall in a queue because each depends on one still awaiting review.",
+      "A scenario where three separate teams ship the exact same feature entirely independently.",
+      "An illustration of how AI agents resolve merge conflicts entirely on their own.",
+      "An argument for why pull requests should never be allowed to depend on each other."
     ],
     explanation: "The chained PR example demonstrates review gridlock: each PR depends on the one before it, so the whole chain stalls if an earlier PR is stuck waiting for review."
   },
   {
     question: "Why does the paper recommend requiring an AI-generated ‘Bundled Summary and Risk Assessment’ on every PR?",
     choices: [
-      "It helps human reviewers focus their attention on architecture and risk rather than reading every changed line.",
-      "It replaces the need for any human review entirely.",
-      "It's required so the PR can bypass automated tests.",
-      "It automatically rewrites the PR title for SEO purposes."
+      "It helps reviewers aim limited attention at architecture and risk.",
+      "It's described as a way to replace the need for human review entirely going forward.",
+      "It's framed as something required purely so the PR can bypass automated tests.",
+      "It's said to automatically rewrite the PR's title for search-engine purposes."
     ],
     explanation: "A bundled, AI-written summary and risk assessment lets reviewers direct their limited attention to architectural and risk concerns instead of manually scanning every line of a large diff."
   },
   {
     question: "What does ‘Reimagined Ownership’ shift a reviewer's focus toward, per the paper?",
     choices: [
-      "The integrity of the architectural blueprint, leaving style enforcement to linters and stylebooks instead of manual nitpicking.",
-      "Counting how many lines of code each contributor personally typed.",
-      "Making one person solely responsible for every bug in a file forever.",
-      "Removing the need for any reviewer once code passes CI."
+      "The architectural blueprint's integrity, leaving style enforcement to linters instead.",
+      "Counting exactly how many lines of code each individual contributor has personally typed.",
+      "Making one person permanently responsible for every bug in a given file forever.",
+      "Removing the need for any reviewer at all once code passes continuous integration."
     ],
     explanation: "Reimagined Ownership reframes the reviewer's job around protecting the architectural blueprint's integrity, while linters and stylebooks — not humans — handle stylistic nitpicks."
   },
   {
     question: "What problem does the paper's ‘No-Blame Culture’ principle address?",
     choices: [
-      "It attributes bugs or integration conflicts to a broken process rather than blaming the individual developer who happened to trigger them.",
-      "It removes all accountability for shipped bugs entirely.",
-      "It only applies to bugs caused by junior developers.",
-      "It encourages teams to blame the AI vendor for every defect."
+      "It blames bugs or integration conflicts on a broken process, not the individual developer.",
+      "It's described as removing all accountability for any bug that ships, period.",
+      "It's framed as applying only to bugs that happen to be caused by junior staff.",
+      "It's said to encourage teams to blame the AI vendor for every single defect."
     ],
     explanation: "No-Blame Culture treats bugs and integration conflicts as signals of a broken process to fix, rather than reasons to single out the individual developer involved."
   },
   {
     question: "What three diagnostic questions does the paper say should guide which tier of repo-watching agent a team deploys?",
     choices: [
-      "How specific the review criteria need to be, whether the agent needs memory across runs, and what the worst case looks like if it goes wrong.",
-      "How many GPUs are available, what language the repo uses, and how big the team is.",
+      "How specific the review criteria must be, whether it needs cross-run memory, and the worst case.",
+      "How many GPUs are on hand, which programming language the repo happens to use, and how big the team is.",
       "How much the tool costs, how fast it runs, and how popular it is on GitHub.",
-      "Whether the agent supports voice commands, dark mode, and mobile notifications."
+      "Whether it supports voice commands, has a dark mode, and sends mobile alerts."
     ],
     explanation: "The paper frames the tier choice around three questions: how specific the review criteria are, whether cross-run memory is needed, and what the worst-case failure looks like."
   },
   {
     question: "Why does flattening a codebase into a plain vector store lose information that a graph database would preserve, according to the paper?",
     choices: [
-      "Structural relationships — like which class belongs to which file, or which function call maps to which requirement — get lost when everything becomes unstructured embeddings.",
-      "Vector stores can't store text at all, only images.",
-      "Graph databases are simply faster at every kind of query, with no other tradeoff.",
-      "Vector stores require a paid license while graph databases are free."
+      "Relationships like class-to-file or call-to-requirement vanish once everything is embedded.",
+      "Vector stores are described as unable to store any text at all, only images.",
+      "Graph databases are framed as simply faster at every single kind of query, with no tradeoff at all.",
+      "Vector stores are said to require a costly paid license while graph databases always stay free."
     ],
     explanation: "A vector store captures semantic similarity but discards structure — the paper notes that class-to-file and function-call-to-requirement relationships survive in a graph database but disappear once everything is flattened into embeddings."
   },
   {
     question: "Why does the paper say a single agent simply told to ‘refactor this module’ tends to fail at scale, and what's its proposed fix?",
     choices: [
-      "One agent can't hold the full context of search, impact, and task breakdown at once; the paper proposes a pipeline of specialized sub-agents (Search, Story, Impact, Task-breakdown, then Coding) that hand off to each other.",
-      "It fails because refactoring is impossible for any AI system to perform.",
-      "The fix is to give the single agent unlimited time with no other changes.",
-      "It fails only when the module is written in a dynamically typed language."
+      "One agent can't hold context alone, so the paper proposes a sub-agent pipeline.",
+      "It's framed as failing because refactoring is impossible for any AI system to perform.",
+      "The fix offered is simply giving the single agent unlimited time and nothing else.",
+      "It's said to fail only when the module happens to use a dynamically typed language."
     ],
     explanation: "A lone agent given a broad instruction like ‘refactor this module’ lacks the structured context to do it reliably; the paper's fix is a sub-agent pipeline — Search, Story, Impact, Task-breakdown, then Coding agents — each handling one stage."
   },
   {
     question: "What problems do ‘Digital Quiet Hours’ and ‘Agent Insight Sessions’ address in the paper?",
     choices: [
-      "Approval fatigue and burnout, by setting boundaries on when approval requests can interrupt people and creating shared sessions to discuss patterns agents are finding.",
-      "Slow internet connections during peak office hours.",
-      "The need to silence agent notifications permanently.",
+      "Approval fatigue and burnout, via interruption boundaries and shared pattern-discussion sessions.",
+      "Slow internet connections that tend to crop up mostly during the busiest peak office hours of the day.",
+      "The ongoing need to silence agent notifications on a fully permanent basis.",
       "Disagreements over which programming language a team should standardize on."
     ],
     explanation: "Digital Quiet Hours limit when approval pings can interrupt a person, and Agent Insight Sessions give teams a shared forum to discuss patterns agents are surfacing — both aimed at reducing approval fatigue and burnout."
@@ -533,30 +533,30 @@ const QUESTION_BANK = [
   {
     question: "Why does the paper say Antigravity's built-in browser runs in an isolated, incognito-like Chrome profile?",
     choices: [
-      "To prevent context leakage or accidental actions from bleeding in through a developer's active personal browser logins and sessions.",
-      "Incognito mode is required for the browser to render any web page at all.",
-      "It makes page loads faster by disabling all extensions.",
-      "It's a licensing requirement imposed by the browser vendor."
+      "To stop context leakage from a developer's logged-in sessions.",
+      "Incognito mode is described as required just for the browser to render any page.",
+      "It's framed as making page loads faster by disabling every browser extension.",
+      "It's presented as a licensing requirement imposed by the browser's vendor."
     ],
     explanation: "Running the agent's browser in an isolated, incognito-like profile keeps it from picking up a developer's logged-in personal sessions, preventing context leakage or unintended live actions."
   },
   {
     question: "Why does a policies.yaml configuration in the paper's example block the `send_email` action specifically on the `localhost` environment?",
     choices: [
-      "To prevent an agent from accidentally sending real emails while it's just being tested or developed locally.",
-      "Because localhost environments can't make outbound network calls at all.",
-      "Because email sending is always disabled in YAML by default.",
-      "To force all email testing to happen only in production."
+      "To stop an agent from accidentally sending a real email while merely being tested locally.",
+      "Localhost environments are described as unable to make any outbound network calls.",
+      "Email sending is framed as something disabled in YAML by default, always.",
+      "It's said to force all email testing to happen exclusively in production."
     ],
     explanation: "Blocking `send_email` on `localhost` is a safeguard so that local testing and development can never accidentally trigger a real email send — exactly the kind of structural gate the paper recommends for risky actions."
   },
   {
     question: "What does the paper's closing summary identify as the real lever for getting value out of AI coding tools, beyond better prompts or faster models?",
     choices: [
-      "Evolving team dynamics and collaboration boundaries — humans acting as architects while AI handles heavy lifting like test-writing and operational details.",
-      "Switching to whichever model has the largest context window.",
-      "Hiring more junior developers to review AI output line by line.",
-      "Eliminating code review entirely once AI reaches a certain accuracy threshold."
+      "Evolving team dynamics, humans as architects, AI absorbing the heavy lifting.",
+      "Switching over to whichever model on the market has the largest context window.",
+      "Hiring on more junior developers to review AI output one line at a time.",
+      "Eliminating code review entirely once AI clears some fixed accuracy threshold."
     ],
     explanation: "The paper closes by arguing the real unlock isn't a better prompt or a faster model, but how teams restructure collaboration — humans as architects, with AI absorbing operational heavy-lifting like writing tests."
   }
